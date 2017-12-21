@@ -5,31 +5,24 @@ class PERMUT2
 	{
 		Scanner sc = new Scanner(System.in);
 		int n,i,pos = 0,flag = 0;
-		String str = "";
+		int a[] = new int[100001];
 		char ch;
 		do{
-			flag = 0;
-			str = "";
 			n = sc.nextInt();
-			if(n==0)
+			if(n == 0)
 				break;
-			for(i=1;i<=n;i++)
-			{
-				str = str + sc.next().charAt(0);
+			for (i=1;i<=n ; i++ ) {
+				a[i] = sc.nextInt();
 			}
-			//System.out.println(str);
-			for (i=1;i<=n ;i++ ) {
-				pos = str.indexOf((char)(i + 48)) + 1;
-				//System.out.println("i : "+i + " pos : " + pos );
-				//System.out.println("charAt(i-1)"+str.charAt(i-1) + " (char)(pos+48) : " + (char)(pos+48) );
-				if(str.charAt(i-1)==(char)(pos+48))
+			for (i=1;i<=n ; i++ ) {
+				if(a[a[i]] == i)
 					flag = 0;
-				else 
-				{
+				else{
 					flag = 1;
 					break;
 				}
 			}
+			
 			if(flag == 0)
 				System.out.println("ambiguous");
 			else
